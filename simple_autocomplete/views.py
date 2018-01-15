@@ -30,13 +30,13 @@ def get_json(request, token):
             # Check for duplicate strings
             counts = {}
             for item in items:
-                key = unicode(item)
+                key = str(item)
                 counts.setdefault(key, 0)
                 counts[key] += 1
 
             # Assemble result set
             for item in items:
-                key = value = unicode(item)
+                key = value = str(item)
                 value = getattr(item, fieldname)
                 if counts[key] > 1:
                     func = get_setting(
